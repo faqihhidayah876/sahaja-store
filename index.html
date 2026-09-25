@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#ffffff">
-<title>SAHAJA Store — Katalog Aplikasi Android</title>
-<meta name="description" content="SAHAJA Store — kumpulan aplikasi Android pilihan. Unduh APK melalui tautan MediaFire.">
+<title>SAHAJA Store — Katalog Aplikasi Android & Windows</title>
+<meta name="description" content="SAHAJA Store — kumpulan aplikasi Android dan Windows pilihan. Unduh APK & EXE melalui tautan MediaFire.">
 <link rel="icon" type="image/png" href="https://i.ibb.co.com/bjsSTrVm/logo-SAHAJA-orange.png">
 <link rel="apple-touch-icon" href="https://i.ibb.co.com/bjsSTrVm/logo-SAHAJA-orange.png">
 
@@ -454,7 +454,7 @@ main{
 .card:active{transform:translateY(-1px)}
 .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-/* ---------- App Icon (logo gambar + fallback huruf) ---------- */
+/* ---------- App Icon (logo gambar + fallback huruf + badge platform) ---------- */
 .app-icon{
   position:relative;
   width:58px;
@@ -468,9 +468,18 @@ main{
   letter-spacing:-.5px;
   background:linear-gradient(140deg,var(--c1),var(--c2));
   flex-shrink:0;
-  overflow:hidden;
+  overflow:visible;
   box-shadow:0 6px 16px -8px var(--c1);
   isolation:isolate;
+}
+.app-icon .icon-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  border-radius:inherit;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
 }
 .app-icon .letter{
   position:relative;
@@ -487,6 +496,30 @@ main{
   z-index:1;
   background:inherit;
   border-radius:inherit;
+}
+.app-icon .platform-badge{
+  position:absolute;
+  bottom:-4px;
+  right:-4px;
+  z-index:3;
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:3px 6px;
+  border-radius:7px;
+  background:var(--accent);
+  color:#fff;
+  line-height:1;
+  border:2px solid var(--surface);
+  box-shadow:0 3px 8px -2px rgba(234,88,12,.5);
+}
+.app-icon .platform-badge svg{
+  width:9px;
+  height:9px;
 }
 
 .card-body{flex:1}
@@ -890,6 +923,27 @@ main{
   margin-top:12px;
 }
 
+/* Warning box for non-Android */
+.warn{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:12px 14px;
+  border-radius:12px;
+  background:var(--accent-soft);
+  border:1px solid var(--accent-soft-2);
+  color:var(--text-2);
+  font-size:13px;
+  line-height:1.6;
+  margin:14px 0 4px;
+}
+.warn svg{
+  flex-shrink:0;
+  margin-top:2px;
+  color:var(--accent);
+}
+.warn b{color:var(--text)}
+
 /* Description rich text */
 .desc-text{
   white-space:pre-line;
@@ -928,6 +982,8 @@ main{
   .grid{grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:12px}
   .card{padding:15px;gap:12px}
   .app-icon{width:52px;height:52px;border-radius:14px;font-size:20px}
+  .app-icon .platform-badge{font-size:9px;padding:2.5px 5px;bottom:-3px;right:-3px;border-width:1.5px}
+  .app-icon .platform-badge svg{width:8px;height:8px}
   .card h3{font-size:14px}
   .dl{font-size:12.5px;padding:9px}
   .foot-inner{
@@ -946,6 +1002,7 @@ main{
   .grid{grid-template-columns:repeat(auto-fill,minmax(144px,1fr))}
   .card{padding:13px}
   .app-icon{width:48px;height:48px;font-size:18px}
+  .app-icon .platform-badge{font-size:8px;padding:2px 4px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -1004,7 +1061,7 @@ main{
   </div>
 
   <h1>Unduh aplikasi favoritmu<br>di <em>SAHAJA Store</em></h1>
-  <p>Kumpulan aplikasi Mod dan Open Source Android pilihan dalam satu tempat. Cari, pilih, lalu unduh berkas APK-nya langsung melalui tautan MediaFire.</p>
+  <p>Kumpulan aplikasi Mod dan Open Source untuk Android &amp; Windows pilihan dalam satu tempat. Cari, pilih, lalu unduh berkas APK-nya langsung melalui tautan MediaFire.</p>
 
   <div class="hero-search" id="searchWrap">
     <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
@@ -1083,7 +1140,7 @@ main{
   <div class="foot-inner">
     <div class="foot-brand">
       <img src="https://i.ibb.co.com/bjsSTrVm/logo-SAHAJA-orange.png" alt="SAHAJA Store">
-      <p>Etalase digital aplikasi Android pilihan. Dibuat sederhana agar kamu bisa langsung mencari dan mengunduh tanpa hambatan.</p>
+      <p>Etalase digital aplikasi Android &amp; Windows pilihan. Dibuat sederhana agar kamu bisa langsung mencari dan mengunduh tanpa hambatan.</p>
     </div>
 
     <div class="foot-col">
@@ -1109,7 +1166,7 @@ main{
     <span>Dibuat dengan sederhana untuk komunitas Android.</span>
     <p class="legal">
       SAHAJA Store bukan toko aplikasi resmi dan tidak berafiliasi dengan Google Play maupun para pengembang aplikasi yang terdaftar.
-      Seluruh nama, logo, dan merek adalah milik pemiliknya masing-masing. Berkas APK disediakan melalui layanan penyimpanan pihak ketiga (MediaFire).
+      Seluruh nama, logo, dan merek adalah milik pemiliknya masing-masing. Berkas APK &amp; EXE disediakan melalui layanan penyimpanan pihak ketiga (MediaFire).
       Unduh dan pasang dengan risiko Anda sendiri.
     </p>
   </div>
@@ -1240,8 +1297,9 @@ main{
   /* =========================================================
      DATA APLIKASI
      ---------------------------------------------------------
-     Field `logo` (opsional): URL gambar logo aplikasi.
-     Jika kosong / gagal dimuat → otomatis fallback ke huruf.
+     Field `platform`   : "Android" (default) atau "Windows"
+     Field `fileType`   : "apk" (default) atau "exe"
+     Field `logo`       : URL gambar logo (opsional)
      ========================================================= */
   var APPS = [
     {
@@ -1351,9 +1409,27 @@ main{
       logo: "https://play-lh.googleusercontent.com/LPn5j7MecOOZhP69MIiYEFGwmLp7EKlvb35hcZRDS14nDIP7ldxsdPK6JFG7csHuWYxx1_K6p_yqajrMHzJs3g=w480-h960-rw",
       desc: "Instant Mail adalah aplikasi email sementara sekali pakai yang membantu Anda menghindari spam dan melindungi email asli.\n\nFitur utama:\n• Generate email sekali pakai\n• Terima email dan lampiran\n• Tanpa registrasi\n• Anonim dan gratis\n• Cocok untuk verifikasi akun\n\nBerguna saat ingin mencoba aplikasi atau layanan tanpa memberikan email pribadi. Disarankan mendownload aplikasi ini terlebih dahulu sebelum menggunakan CapCut versi Mod.",
       url: "https://www.mediafire.com/file/eyszjiurzfbydmr/Instant_Mail-8.0.0.apk/file"
+    },
+    {
+      name: "FreeTube",
+      dev: "Team FreeTube",
+      category: "Video",
+      version: "0.25.3 Beta",
+      letter: "F",
+      c1: "#c8102e",
+      c2: "#f43f5e",
+      logo: "https://www.google.com/s2/favicons?domain=freetubeapp.io&sz=256",
+      platform: "Windows",
+      fileType: "exe",
+      desc: "FreeTube adalah klien YouTube desktop open source untuk Windows. Aplikasi ini menjaga privasi Anda karena tidak melacak riwayat tontonan maupun menampilkan iklan.\n\nFitur utama:\n• Tanpa iklan\n• Tanpa pelacakan\n• Berlangganan tanpa akun Google\n• Unduh video dan audio\n• Riwayat tontonan lokal\n\nCatatan penting: aplikasi ini berformat .exe dan hanya dapat dijalankan di laptop atau PC (Windows), BUKAN di ponsel Android.",
+      url: "https://www.mediafire.com/file/wdg2m6jn36ozbu8/freetube-0.25.3-beta-setup-x64.exe/file"
     }
   ];
-  APPS.forEach(function (a, i) { a.id = i; });
+  APPS.forEach(function (a, i) {
+    a.id = i;
+    if (!a.platform) a.platform = "Android";
+    if (!a.fileType) a.fileType = "apk";
+  });
 
   /* =========================================================
      ELEMEN & STATE
@@ -1384,7 +1460,11 @@ main{
     });
   }
 
+  // Ikon monitor untuk badge PC
+  var pcBadgeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>';
+
   // Render ikon: pakai <img> jika ada URL, fallback huruf jika kosong / error
+  // Plus badge platform di pojok kanan bawah untuk non-Android
   function iconHTML(a, extraClass) {
     var cls = "app-icon" + (extraClass ? " " + extraClass : "");
     var style = 'style="--c1:' + a.c1 + ';--c2:' + a.c2 + '"';
@@ -1393,10 +1473,33 @@ main{
       ? '<img src="' + esc(a.logo) + '" alt="" loading="lazy" referrerpolicy="no-referrer" ' +
         'onerror="this.remove()">'
       : "";
-    return '<div class="' + cls + '" ' + style + '>' + letter + img + "</div>";
+    var badge = "";
+    if (a.platform && a.platform !== "Android") {
+      badge = '<span class="platform-badge" title="Khusus ' + esc(a.platform) + '">' +
+                pcBadgeIcon + 'PC' +
+              '</span>';
+    }
+    return '<div class="' + cls + '" ' + style + '>' +
+             '<span class="icon-inner">' + letter + img + '</span>' +
+             badge +
+           '</div>';
   }
 
   var dlIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 21h14"/></svg>';
+
+  // Label tombol unduh & teks hint dinamis
+  function dlLabel(a) {
+    return a.fileType === "exe" ? "Unduh EXE" : "Unduh";
+  }
+  function dlBtnLabel(a) {
+    return a.fileType === "exe" ? " Unduh EXE" : " Unduh APK";
+  }
+  function hintText(a) {
+    if (a.fileType === "exe") {
+      return "Tautan akan terbuka di tab baru dan mengarah ke MediaFire. File berformat .exe hanya dapat dijalankan di Windows.";
+    }
+    return "Tautan akan terbuka di tab baru dan mengarah ke MediaFire.";
+  }
 
   /* =========================================================
      RENDER CHIPS
@@ -1413,7 +1516,8 @@ main{
      RENDER GRID
      ========================================================= */
   function cardHTML(a) {
-    var meta = a.category + (a.version ? " · v" + a.version : "");
+    var meta = a.category + (a.version ? " · v" + a.version : "") +
+               (a.platform !== "Android" ? " · " + a.platform : "");
     return '' +
       '<article class="card" data-id="' + a.id + '" tabindex="0" role="button" aria-label="Lihat detail ' + esc(a.name) + '">' +
         iconHTML(a) +
@@ -1422,8 +1526,8 @@ main{
           '<p class="sub">' + esc(meta) + '</p>' +
         '</div>' +
         '<a class="dl" href="' + esc(a.url) + '" target="_blank" rel="noopener noreferrer" ' +
-           'onclick="event.stopPropagation()" aria-label="Unduh ' + esc(a.name) + '">' +
-           dlIcon + 'Unduh' +
+           'onclick="event.stopPropagation()" aria-label="' + esc(dlLabel(a)) + ' ' + esc(a.name) + '">' +
+           dlIcon + esc(dlLabel(a)) +
         '</a>' +
       '</article>';
   }
@@ -1436,7 +1540,8 @@ main{
       var okQ = !q ||
         a.name.toLowerCase().indexOf(q) !== -1 ||
         a.dev.toLowerCase().indexOf(q) !== -1 ||
-        a.category.toLowerCase().indexOf(q) !== -1;
+        a.category.toLowerCase().indexOf(q) !== -1 ||
+        a.platform.toLowerCase().indexOf(q) !== -1;
       return okCat && okQ;
     });
 
@@ -1489,6 +1594,19 @@ main{
       return '<ul>' + match + '</ul>';
     });
 
+    // Warning khusus untuk file non-APK
+    var warnHTML = "";
+    if (a.fileType === "exe") {
+      warnHTML =
+        '<div class="warn">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+            '<path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>' +
+            '<path d="M12 9v4M12 17h.01"/>' +
+          '</svg>' +
+          '<span>Berkas ini berformat <b>.exe</b> dan hanya dapat dijalankan di <b>laptop atau PC (Windows)</b>, bukan di ponsel Android.</span>' +
+        '</div>';
+    }
+
     detailBody.innerHTML = '' +
       '<div class="detail-head">' +
         iconHTML(a) +
@@ -1499,19 +1617,20 @@ main{
         '<button class="close" type="button" data-close aria-label="Tutup">×</button>' +
       '</div>' +
 
+      warnHTML +
       descHTML +
 
       '<div class="facts">' +
         '<div class="fact"><span>Kategori</span><b>' + esc(a.category) + '</b></div>' +
         '<div class="fact"><span>Versi</span><b>' + esc(a.version || "—") + '</b></div>' +
-        '<div class="fact"><span>Platform</span><b>Android</b></div>' +
-        '<div class="fact"><span>Sumber</span><b>MediaFire</b></div>' +
+        '<div class="fact"><span>Platform</span><b>' + esc(a.platform) + '</b></div>' +
+        '<div class="fact"><span>Format</span><b>.' + esc(a.fileType) + '</b></div>' +
       '</div>' +
 
       '<a class="dl-btn" href="' + esc(a.url) + '" target="_blank" rel="noopener noreferrer">' +
-        dlIcon + ' Unduh APK' +
+        dlIcon + dlBtnLabel(a) +
       '</a>' +
-      '<p class="hint">Tautan akan terbuka di tab baru dan mengarah ke MediaFire.</p>';
+      '<p class="hint">' + esc(hintText(a)) + '</p>';
 
     openModal(detailModal);
   }
